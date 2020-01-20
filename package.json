@@ -1,0 +1,39 @@
+{
+  "name": "embedded-checkout-poc-client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@bigcommerce/checkout-sdk": "^1.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8"
+  },
+  "scripts": {
+    "start": "HTTPS=true PORT=443 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "description": "This is a React app for us by BigCommerce Solution Architects to demonstrate embedded checkout. This is not intended for any production use",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hatertron3000/embedded-checkout-poc.git"
+  },
+  "author": "Patrick Puente",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hatertron3000/embedded-checkout-poc/issues"
+  },
+  "homepage": "https://github.com/hatertron3000/embedded-checkout-poc#readme"
+}
