@@ -1,9 +1,13 @@
 # Embedded Checkout POC
-This is a React app for us by BigCommerce Solution Architects to demonstrate embedded checkout. This is not intended for any production use
+This is a React app for use by BigCommerce Solution Architects to demonstrate embedded checkout. This is not intended for any production use
 
 ## Setup
 ### With Tools
 You may use [this Postman collection](https://documenter.getpostman.com/view/45334/SWT5jLpM?version=latest) to automate the processes for registering a channel, a site, and routes, as well as the requests to generate a cart and cart redirect URL.
+
+> :warning: *localhost URLs will no longer work*
+> 
+> The collection no longer works in its current form because it expects BigCommerce to allow a `localhost` Channel Site URL which is no longer allowed. Update the Create a Channel Site request with your testing domain.
 
 ### Manual Setup
 
@@ -27,11 +31,14 @@ Documentation: https://developer.bigcommerce.com/api-reference/cart-checkout/cha
 ##### Example body for the Create a Channel Site requests:
 ```javascript
 {
-    "url": "https://localhost"
+    "url": "https://local-dev.test"
 }
 ```
 
-_Note: If you will host the React app on a domain other than localhost, you must
+> :warning: *localhost URLs will no longer work*
+> 
+> BC will no longer access `localhost` as the url for a Channel Site. Consider redirecting a .test domain to localhost in your machine's hosts file, or hosting your React app on a domain.
+
 Documentation: https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site/postchannelsite
 
 ##### Example bodies for the Create a Site Route requests:
@@ -72,7 +79,7 @@ Once you have registered your channel, site, and routes, and you have created a 
 
 `sudo npm run start`
 
-You must use `sudo` because the app must be served on port 443, and running the app on port 443 require lcoal admin permissions. You must serve the app on port 443 because the embedded checkout will only load on pages that are accessed with HTTPS, and BigCommerce still strip the port number in any URL you supply as part of the Create a Channel Site request. If the URL of the page embedding the checkout has a port number and the Channel Site URL does not have a port number (it can't), the embedded checkout will not load.
+You must use `sudo` because the app must be served on port 443, and running the app on port 443 require local admin permissions. You must serve the app on port 443 because the embedded checkout will only load on pages that are accessed with HTTPS, and BigCommerce still strip the port number in any URL you supply as part of the Create a Channel Site request. If the URL of the page embedding the checkout has a port number and the Channel Site URL does not have a port number (it can't), the embedded checkout will not load.
 
 ### 2) Open the React app in your browser
 In your browser, navigate to https://localhost and dismiss any security warnings.
